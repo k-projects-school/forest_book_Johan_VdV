@@ -191,7 +191,7 @@ public class ForestNotebook {
 			if (plant == null) {
 				throw new NullPointerException("The plant can't be NULL.");
 			}
-			
+
 			if (this.plants.contains(plant)) {
 				throw new AlreadyInListException("The plant " + plant.getName() + " is already in the list.");
 			}
@@ -239,6 +239,30 @@ public class ForestNotebook {
 			@Override
 			public int compare(Plant o1, Plant o2) {
 				return o1.getName().compareTo(o2.getName());
+			}
+		});
+	}
+
+	/**
+	 * Sort the animals by their height
+	 */
+	public void sortAnimalsByHeight() {
+		this.animals.sort(new Comparator<Animal>() {
+			@Override
+			public int compare(Animal o1, Animal o2) {
+				return Double.compare(o1.getHeight(), o2.getHeight());
+			}
+		});
+	}
+
+	/**
+	 * Sort the animals by their height
+	 */
+	public void sortPlantsByHeight() {
+		this.plants.sort(new Comparator<Plant>() {
+			@Override
+			public int compare(Plant o1, Plant o2) {
+				return Double.compare(o1.getHeight(), o2.getHeight());
 			}
 		});
 	}

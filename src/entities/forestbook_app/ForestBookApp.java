@@ -75,15 +75,27 @@ public class ForestBookApp {
 		// Print the amount of animals an plants
 		System.out.println("Animals crossed: " + myHikingJournal.getAnimalCount());
 		System.out.println("Plants seen: " + myHikingJournal.getPlantCount());
+		System.out.println("--------------------------------------------------------------------");
+		System.out.println("Print everything in the notebook unsorted");
 		// Print everything in the notebook
 		myHikingJournal.printNotebook();
+		System.out.println("--------------------------------------------------------------------");
+		System.out.println("Print all the animals");
 		// Print all the animals
 		Stream.of(myHikingJournal.getCarnivores()).forEach(System.out::println);
 		Stream.of(myHikingJournal.getOmnivores()).forEach(System.out::println);
 		Stream.of(myHikingJournal.getHerbivores()).forEach(System.out::println);
-		// Sort the animals and plants
+		System.out.println("--------------------------------------------------------------------");
+		// Sort the animals and plants by name
 		myHikingJournal.sortAnimalsByName();
 		myHikingJournal.sortPlantsByName();
+		System.out.println("Print everything in the notebook sorted by name");
+		// Print everything in the notebook
+		myHikingJournal.printNotebook();
+		// Sort the animals and plants by height
+		myHikingJournal.sortAnimalsByHeight();
+		myHikingJournal.sortPlantsByHeight();
+		System.out.println("Print everything in the notebook sorted by height");
 		// Print everything in the notebook
 		myHikingJournal.printNotebook();
 	}
