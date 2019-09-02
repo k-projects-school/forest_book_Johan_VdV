@@ -75,6 +75,10 @@ public class Plant {
 			return false;
 		}
 
+		//TODO wat gebeurt er als je bv de Tree class verwijdert of een nieuwe class zou aanmaken ?
+		// dan moet je telkens de equals methode van Plant gaan aanpassen
+		// de oplossing hiervoor is om altijd in de subclasses de equals methode te override
+
 		// Switch between the types of plants
 		switch (obj.getClass().getSimpleName()) {
 		case "Tree":

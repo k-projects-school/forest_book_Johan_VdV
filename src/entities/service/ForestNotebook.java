@@ -1,5 +1,7 @@
 package entities.service;
-
+//TODO package structuur is niet correct, in je src folder moet 3 folders hebben entitities(animals, plants)
+// de service folder en e forestbook_app
+// in het algemeen goed gedocumenteerd
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -138,6 +140,8 @@ public class ForestNotebook {
 	 * 
 	 * @return The count of animals
 	 */
+
+	//TODO return animalCount = Stream.of(animals).mapToInt(Animal -> animals.size()).sum();
 	public int getAnimalCount() {
 		return this.animalCount;
 	}
@@ -152,10 +156,15 @@ public class ForestNotebook {
 			if (animal == null) {
 				throw new NullPointerException("The animall can't be NULL.");
 			}
-
+			// TODO Hier zou ik eerder nakijken als die niet in de lijst is ze gaan toevoegen en
+			// nog eens nakijken of dat animal instanceOf Carnivore etc is en zeker geen switch case
 			if (this.animals.contains(animal)) {
 				throw new AlreadyInListException("The animal " + animal.getName() + " is already in the animal list.");
 			}
+
+			//TODO wat is het verschi tussen instanceOf en getClass() ?
+			// in dit geval willen we weten of dat animal een instance is van de Carnivore etc
+			// voor dat we die aan de ijst toevoegen
 
 			// Switch the class name of the given animal.
 			switch (animal.getClass().getSimpleName()) {
@@ -175,6 +184,7 @@ public class ForestNotebook {
 
 			// Add the animal to the animal list
 			this.animals.add(animal);
+			// TODO de incrementatie hoort bij animalCount() , heb een code voorbeel in commentaar geschreven ;)
 			this.animalCount++;
 		} catch (NullPointerException | AlreadyInListException e) {
 			System.out.println(e.getMessage());
@@ -210,6 +220,7 @@ public class ForestNotebook {
 		System.out.println("Notebook:\n\n Animals:\n You have seen " + this.getAnimalCount() + " animals.");
 		for (Animal animal : this.animals) {
 			System.out.println(animal);
+			// TODO gebruik de repeat methode -> System.out.println("-".repeat(20));
 			System.out.println("----------------------");
 		}
 		System.out.println(" Plants:\n You have seen " + this.getPlantCount() + " plant(s).");
@@ -222,6 +233,9 @@ public class ForestNotebook {
 	/**
 	 * Sort the animals by their name in alphabetical order.
 	 */
+
+	// TODO je kan het ook vervangen door gebruik te maken van Comparator.comparing
+	// animals.sort(Comparator.comparing(animal -> animal.getName()));
 	public void sortAnimalsByName() {
 		this.animals.sort(new Comparator<Animal>() {
 			@Override

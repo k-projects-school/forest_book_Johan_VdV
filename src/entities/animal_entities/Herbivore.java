@@ -56,6 +56,8 @@ public class Herbivore extends Animal {
 	 * 
 	 * @param plant - The plant to add to the diet
 	 */
+	//TODO altijd goed om een check te doen of dat de plant al in de plantdiet aanwezig is,
+	// indien niet ze toevoegen
 	public void addPlantToDiet(Plant plant) {
 		this.plantDiet.add(plant);
 	}
@@ -77,6 +79,7 @@ public class Herbivore extends Animal {
 		String string = " Herbivorous animal:\n Name: " + this.getName() + "\n Weight: " + this.getWeight()
 				+ "\n Height: " + this.getHeight() + "\n Length: " + this.getLength() + "\n Diet: ";
 		for (Plant plant : plantDiet) {
+			//Stringbuilder var was een betere optie en de methode append gebruiken
 			string += "\n  -" + plant.getName();
 		}
 

@@ -2,6 +2,9 @@ package entities.animal_entities;
 
 public class Animal {
 	private String name;
+	//TODO geen inline declaratie & initialisatie, het is niet goed leesbaar.
+	// wat is de deafualt waarde van een double als die niet geinitaliseerd is?
+	// dus de initialisatie is redundant in dit geval
 	private double weight = 0, height = 0, length = 0;
 
 	/**
